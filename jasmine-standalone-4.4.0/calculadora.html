@@ -1,0 +1,167 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+    input{
+        font: normal 18pt Arial;
+        width: 90px;
+        background-color: #cccccc;
+        border: 1px solid black;
+        margin-bottom: 10px;
+        }
+    button{
+        font:  normal 18pt Arial;
+        width: 50px;
+    }    
+    button#BotaoLimpar{
+        width: auto;
+    }
+    div#DivLimpar{
+        position: absolute;
+        right: 0;
+        bottom: 0;
+    }
+    h1{
+        padding-top: 50px;
+        color: rgb(238, 157, 37);
+    }
+    div#area{
+        font: normal 20pt Arial;
+        color: rgb(47, 231, 231);
+        background-color: rgb(166,160,243);
+        width: 400px;
+        height: 500px;
+        text-align: center;
+        position: relative;
+        margin: auto;
+        border: black;        
+    }
+    div.single{
+        padding-top: 10px;
+        background-color: (187,187,248);
+        width: 90%;
+        margin: auto;
+        font-size: 20px;
+        color: black;
+    }
+    body{
+        background-color: rgb(203,203,248);    
+    }
+    div#conteudo{
+        padding-top: 10px;
+    }
+
+    </style>
+</head>
+<body>
+    
+<div id="area">
+    <h1>Calculadora</h1>
+    <p id="resultado"></p>
+            <div id="conteudo">
+
+                     <div class="single">
+                     <input type="text" name="somar1" id="somar1">   
+                     +
+                     <input type="text" name="somar2" id="somar2"> 
+                     <button onclick="somar()">=</button>      
+                     </div>
+
+                     <div class="single">
+                     <input type="text" name="subtrair1" id="subtrair1"> 
+                     - 
+                     <input type="text" name="subtrair2" id="subtrair2"> 
+                     <button onclick="subtrair()">=</button>  
+                     </div>
+
+                     <div class="single">
+                     <input type="text" name="multiplicar1" id="multiplicar1">
+                     *
+                     <input type="text" name="multiplicar2" id="multiplicar2">
+                     <button onclick="multiplicar()">=</button>   
+                     </div>
+
+                     <div class="single">
+                     <input type="text" name="dividir11" id="dividir1" class="dividir11">
+                     /
+                     <input type="text" name="dividir2" id="dividir2"> 
+                     <button onclick="dividir()">=</button>  
+                     </div>
+                     
+            </div>
+
+            <div id="DivLimpar">
+                <button id="BotaoLimpar">Limpar</button>  
+            </div>
+
+</div>
+            <script>
+
+                function somar(){
+                    var somar1 = document.getElementById('somar1')
+                    var somar2 = document.getElementById('somar2')
+                    var v1 = Number(somar1.value)
+                    var v2 = Number(somar2.value)
+                    var resultado = document.getElementById('resultado')
+                    var soma = v1 + v2
+                    resultado.innerHTML = `A Soma é: ${soma}`
+                }
+
+                function subtrair(){
+                    var subtrair1 = document.getElementById('subtrair1')
+                    var subtrair2 = document.getElementById('subtrair2')
+                    var v1 = Number(subtrair1.value)
+                    var v2 = Number(subtrair2.value)
+                    var resultado = document.getElementById('resultado')
+                    var subtrair = v1 - v2
+                    resultado.innerHTML = `A Subtraçãoo é: ${subtrair}`
+                }
+
+                function multiplicar(){
+                    var multiplicar1 = document.getElementById('multiplicar1')
+                    var multiplicar2 = document.getElementById('multiplicar2')
+                    var v1 = Number(multiplicar1.value)
+                    var v2 = Number(multiplicar2.value)
+                    var resultado = document.getElementById('resultado')
+                    var multiplicar = v1 * v2
+                    resultado.innerHTML = `A Multiplicação é: ${multiplicar}`
+                }
+
+                function dividir(){
+                    var dividir1 = document.getElementById('dividir1')
+                  //  var dividir1 = document.getElementsByClassName('dividir11')[0]
+                    var dividir2 = document.getElementById('dividir2')
+                    var v1 = Number(dividir1.value)
+                    var v2 = Number(dividir2.value)
+                    var resultado = document.getElementById('resultado')
+                    var dividir = v1 / v2
+                    resultado.innerHTML = `A Divisão é: ${dividir}`
+                }
+
+                var a = document.getElementById('DivLimpar')
+                a.addEventListener('click', limpar)
+
+                function limpar(){                
+                document.getElementById('somar1').value='';
+                document.getElementById('somar2').value='';
+                document.getElementById('subtrair1').value='';    
+                document.getElementById('subtrair2').value='';  
+                document.getElementById('multiplicar1').value=''; 
+                document.getElementById('multiplicar2').value='';  
+                document.getElementById('dividir1').value='';  
+                document.getElementById('dividir2').value='';  
+                var resultado = document.getElementById('resultado')
+                resultado.innerHTML = '';                
+                }
+
+
+            </script>
+
+
+
+</body>
+</html>
